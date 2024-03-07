@@ -58,7 +58,7 @@
 
     - name: Copy lets encrypt with domain replaced
       copy:
-        src: "{{ playbook_dir }}/../init-letsencrypt.sh"
+        src: "/home/ubuntu/init-letsencrypt.sh"
         dest: "/home/ubuntu/init-letsencrypt.sh"
         owner: "{{ remote_user }}"
         group: "{{ remote_user }}"
@@ -72,7 +72,7 @@
 
     - name: copy Dockerfile without SSL as dockerfile in seller-app-frontend
       copy:
-        src: "{{ playbook_dir }}/../seller-app-frontend/DockerfileWithoutSSL"
+        src: "/home/ubuntu/seller-app-frontend/DockerfileWithoutSSL"
         dest: "/home/ubuntu/seller-app-frontend/Dockerfile"
         owner: "{{ remote_user }}"
         group: "{{ remote_user }}"
@@ -86,7 +86,7 @@
 
     - name: copy env file with domain replaced
       copy:
-        src: "{{ playbook_dir }}/../.env{{ envtype }}"
+        src: "/home/ubuntu/.env{{ envtype }}"
         dest: "/home/ubuntu/.env"
         owner: "{{ remote_user }}"
         group: "{{ remote_user }}"
@@ -100,7 +100,7 @@
 
     - name: Copy docker compose file with domain replaced
       copy:
-        src: "{{ playbook_dir }}/../docker-compose-without-ssl.yaml"
+        src: "/home/ubuntu/docker-compose-without-ssl.yaml"
         dest: "/home/ubuntu/docker-compose.yml"
         owner: "{{ remote_user }}"
         group: "{{ remote_user }}"
