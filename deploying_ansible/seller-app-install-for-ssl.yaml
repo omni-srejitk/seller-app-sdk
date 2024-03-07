@@ -23,35 +23,35 @@
   tasks:
     - name: Clone seller-app
       git:
-        repo: "https://github.com/ONDC-Official/seller-app.git"
+        repo: "https://github.com/omni-srejitk/seller-app.git"
         dest: "/home/ubuntu/seller-app"
         version: "master"
         force: yes
 
     - name: Clone seller-app-protocol
       git:
-        repo: "https://github.com/ONDC-Official/seller-app-protocol.git"
+        repo: "https://github.com/omni-srejitk/seller-app-protocol.git"
         dest: "/home/ubuntu/seller-app-protocol"
         version: "master"
         force: yes
 
     - name: Clone seller-app-frontend
       git:
-        repo: "https://github.com/ONDC-Official/seller-app-frontend.git"
+        repo: "https://github.com/omni-srejitk/seller-app-frontend.git"
         dest: "/home/ubuntu/seller-app-frontend"
         version: "master"
         force: yes
 
     - name: Clone seller-app-igm
       git:
-        repo: "https://github.com/ONDC-Official/seller-app-igm.git"
+        repo: "https://github.com/omni-srejitk/seller-app-igm.git"
         dest: "/home/ubuntu/seller-app-igm"
         version: "master"
         force: yes
 
     - name: Clone seller-bugzilla-service
       git:
-        repo: "https://github.com/ONDC-Official/seller-bugzilla-service.git"
+        repo: "https://github.com/omni-srejitk/seller-bugzilla-service.git"
         dest: "/home/ubuntu/seller-bugzilla-service"
         version: "master"
         force: yes
@@ -69,7 +69,6 @@
         path: "/home/ubuntu/init-letsencrypt.sh"
         regexp: "__domain_name__"
         replace: "{{ domain }}"
-
 
     - name: copy Dockerfile without SSL as dockerfile in seller-app-frontend
       copy:
@@ -113,11 +112,11 @@
       shell: "cd /home/ubuntu/ && sudo docker compose up -d postgres"
 
     - name: docker compose postgres create db, user and password via psql and grant all privileges to schema public
-      shell: "cd /home/ubuntu/ && sudo docker compose exec postgres psql -U postgres -c \"CREATE DATABASE  bpp_protocol;\" && sudo docker compose exec postgres psql -U postgres -c \"CREATE USER  bpp_protocol WITH PASSWORD 'bpp_protocol';\" && sudo docker compose exec postgres psql -U postgres -c \"GRANT ALL PRIVILEGES ON DATABASE bpp_protocol TO bpp_protocol;\" && sudo docker compose exec postgres psql -U postgres -c \"GRANT ALL PRIVILEGES ON SCHEMA public TO bpp_protocol;\""
+      shell: 'cd /home/ubuntu/ && sudo docker compose exec postgres psql -U postgres -c "CREATE DATABASE  bpp_protocol;" && sudo docker compose exec postgres psql -U postgres -c "CREATE USER  bpp_protocol WITH PASSWORD ''bpp_protocol'';" && sudo docker compose exec postgres psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE bpp_protocol TO bpp_protocol;" && sudo docker compose exec postgres psql -U postgres -c "GRANT ALL PRIVILEGES ON SCHEMA public TO bpp_protocol;"'
       ignore_errors: yes
 
     - name: docker compose postgres create db, user and password via psql and grant all privileges to schema public
-      shell: "cd /home/ubuntu/ && sudo docker compose exec postgres psql -U postgres -c \"CREATE DATABASE  seller_client;\" && sudo docker compose exec postgres psql -U postgres -c \"CREATE USER  bpp_client WITH PASSWORD 'bpp_client';\" && sudo docker compose exec postgres psql -U postgres -c \"GRANT ALL PRIVILEGES ON DATABASE seller_client TO bpp_client;\" && sudo docker compose exec postgres psql -U postgres -c \"GRANT ALL PRIVILEGES ON SCHEMA public TO bpp_client;\""
+      shell: 'cd /home/ubuntu/ && sudo docker compose exec postgres psql -U postgres -c "CREATE DATABASE  seller_client;" && sudo docker compose exec postgres psql -U postgres -c "CREATE USER  bpp_client WITH PASSWORD ''bpp_client'';" && sudo docker compose exec postgres psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE seller_client TO bpp_client;" && sudo docker compose exec postgres psql -U postgres -c "GRANT ALL PRIVILEGES ON SCHEMA public TO bpp_client;"'
       ignore_errors: yes
 
     - name: Run docker compose up

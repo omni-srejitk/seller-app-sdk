@@ -1,15 +1,15 @@
 [submodule "seller-app"]
-    path = seller-app
-    url = https://github.com/ONDC-Official/seller-app.git
-[submodule "seller-app-protocol"]
-    path = seller-app-protocol
-    url = https://github.com/ONDC-Official/seller-app-protocol.git
+	path = seller-app
+	url = https://github.com/omni-srejitk/seller-app
 [submodule "seller-app-frontend"]
-    path = seller-app-frontend
-    url = https://github.com/ONDC-Official/seller-app-frontend.git
+	path = seller-app-frontend
+	url = https://github.com/omni-srejitk/seller-app-frontend
 [submodule "seller-app-igm"]
 	path = seller-app-igm
-	url = https://github.com/ONDC-Official/seller-app-igm.git
+	url = https://github.com/omni-srejitk/seller-app-igm
+[submodule "seller-app-protocol"]
+	path = seller-app-protocol
+	url = https://github.com/omni-srejitk/seller-app-protocol
 [submodule "seller-bugzilla-service"]
 	path = seller-bugzilla-service
-	url = https://github.com/ONDC-Official/seller-bugzilla-service.git
+	url = https://github.com/omni-srejitk/seller-bugzilla-service
